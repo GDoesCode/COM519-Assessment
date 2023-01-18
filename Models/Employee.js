@@ -2,18 +2,18 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
-const staffSchema = new Schema(
+const employeeSchema = new Schema(
     {
+        Name: { type: String, required: [true, "Name is required"] },
         FM: { type: String, required: [true, "Function Manager is required"] },
         GG: {type: Number, required: [true, "Global Grade is required"] },
         Last_Update: {type: String, required: [true, "Last update is required"] },
-        Name: { type: String, required: [true, "Name is required"] },
         Skills: { type: Array }
     },
     { timestamps: true }
 );
 
-staffSchema.pre('save', async function (next)
+employeeSchema.pre('save', async function (next)
 {
     // logging 
     console.log(this.password);
@@ -28,4 +28,4 @@ staffSchema.pre('save', async function (next)
     }
 })
 
-module.exports = mongoose.model("Staff", staffSchema);
+module.exports = mongoose.model("Employee", employeeSchema);
