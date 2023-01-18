@@ -1,6 +1,4 @@
 require("dotenv").config();
-const md5 = require("md5");
-const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
