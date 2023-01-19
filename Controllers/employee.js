@@ -3,9 +3,10 @@ const Employee = require("../Models/Employee");
 exports.list = async (req, res) => {
     try {
         const employees = await Employee.find({});
-        res.render("Employees", { employees: employees });
+        res.render("employees", { employees: employees });
+        console.log(employees);
     } catch (e) {
-        res.status(404).send({message: "Could not find employee"});
+        res.status(404).send( { message: "Could not find employee" } );
     }
 }
 
@@ -15,6 +16,6 @@ exports.delete = async (req, res) => {
         Employee.findByIdAndDelete(id);
         res.redirect("/employees");
     } catch (e) {
-        res.status(404).send({message: "Could not delete employee"});
+        res.status(404).send( { message: "Could not delete employee" } );
     }
 }

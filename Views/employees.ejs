@@ -7,22 +7,26 @@
     <body>
         <h1>Staff</h1>
         <table border="1">
-            <header>
+            <thead>
                 <th>ID</th>
                 <th>Name</th>
                 <th>FM</th>
                 <th>GG</th>
                 <th>Last update</th>
                 <th>Skills</th>
-            </header>
+            </thead>
+            <% employees.forEach(function(employee) { %>
             <tr>
-                <td><%= employees[0] %></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><%= employee._id %></td>
+                <td><%= employee.Name %></td>
+                <td><%= employee.FM %></td>
+                <td><%= employee.GG %></td>
+                <td><%= employee.Last_Update %></td>
+                <% employee.Skills.forEach(function(skill) { %> 
+                <td><%= skill %></td>
+                <% }); %>
             </tr>
+            <% }); %>
         </table>
     </body>
 </html>

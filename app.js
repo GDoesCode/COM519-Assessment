@@ -27,7 +27,8 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/employees.ejs", employeeController.list);
+app.get("/employees", employeeController.list);
+app.get("/employees/delete/:id", employeeController.delete);
 
 app.listen(WEB_PORT, () => {
   console.log(`Example app listening at http://localhost:${WEB_PORT}`);
