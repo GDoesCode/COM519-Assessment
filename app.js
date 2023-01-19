@@ -2,8 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
-const Employee = require("./Models/Employee");
-const Skill = require("./Models/Skill");
+
 const app = express();
 app.set("view engine", "ejs");
 
@@ -31,5 +30,5 @@ app.get("/", (req, res) => {
 app.get("/employees.ejs", employeeController.list);
 
 app.listen(WEB_PORT, () => {
-  console.log("Assessment app listening at http://localhost:${WEB_PORT}");
+  console.log(`Example app listening at http://localhost:${WEB_PORT}`);
 });
