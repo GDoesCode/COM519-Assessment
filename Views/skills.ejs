@@ -8,20 +8,13 @@
         <h1>Staff</h1>
         <table border="1">
             <thead>
-                <th>ID</th>
                 <th>Name</th>
-                <th>FM</th>
-                <th>GG</th>
-                <th>Last update</th>
-                <th>Skills</th>
+                <th>Description</th>
             </thead>
             <% skills.forEach(function(skill) { %>
             <tr>
                 <td><%= skill.Name %></td>
-                <td><%= skill.Competency %></td>
-                <% if (skill.Comment != "" || skill.Comment != null) { %> 
-                <td><%= skill.Comment %></td>
-                <% } %> 
+                <td><%= skill.Description %></td>
             </tr>
             <% }); %>
         </table>

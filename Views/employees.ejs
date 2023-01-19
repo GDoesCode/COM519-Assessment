@@ -6,6 +6,9 @@
     </head>
     <body>
         <h1>Staff</h1>
+        <% if (message) { %>
+            <h2><%= message %></h2>
+        <% } %> 
         <table border="1">
             <thead>
                 <th>ID</th>
@@ -23,12 +26,20 @@
                 <td><%= employee.GG %></td>
                 <td><%= employee.Last_Update %></td>
                 <td>
-                    <% for (const [key, value] of Object.entries(employee.Skills)) { %>
-                    <%= key %>: <%= value %> |
-                    <% }; %>
+                    <%
+                        if (employee.Skills != null) {
+                            for (const [key, value] of Object.entries(employee.Skills)) {
+                    %>
+                                <%= key %>: <%= value %> |
+                    <%      }
+                        }
+                    %>
                 </td>
+                <td><a href="addSkill"><button>Add skill</button></a> <a href="deleteSkill"><button>Delete skill</button></a></td>
+                <td><a href="/employees/delete/<%= employee._id %>"><button>Delete employee</button></a></td>
             </tr>
             <% }); %>
         </table>
+        <a href="addEmployee"><button>Add new employee</button></a>
     </body>
 </html>

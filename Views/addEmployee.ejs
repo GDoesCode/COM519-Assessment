@@ -2,8 +2,28 @@
 <html lang="en">
     <head>
         <title>Add Employee</title>
+        <%- include("common/header"); -%> 
     </head>
     <body>
         <h1>Add Employee</h1>
+        <form method="post" action="/addEmployee">
+            Name: <input type="String" name="name"/>
+            <% if (errors["Name"]) { %>
+                <p style="color: red"><%= errors["Name"].message %></p>
+            <% } %>
+            FM: <input type="String" name="fm"/>
+            <% if (errors["FM"]) { %>
+                <p style="color: red"><%= errors["FM"].message %></p>
+            <% } %>
+            GG: <input type="number" name="gg"/>
+            <% if (errors["GG"]) { %>
+                <p style="color: red"><%= errors["GG"].message %></p>
+            <% } %>
+            Last Update: <input type="date" name="last_update"/>
+            <% if (errors["Last_Update"]) { %>
+                <p style="color: red"><%= errors["Last_Update"].message %></p>
+            <% } %>
+            <input type="submit"/>
+        </form>
     </body>
 </html>
