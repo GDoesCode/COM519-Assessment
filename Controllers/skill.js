@@ -55,7 +55,7 @@ exports.update = async (req, res) => {
 exports.delete = async (req, res) => {
     const id = req.param.id;
     try {
-        await Employee.findByIdAndDelete(id);
+        await Skill.findByIdAndDelete(id);
         res.redirect("/skills");
     } catch (e) {
         res.status(404).send({ message: `Could not delete skill: ${id}` });
