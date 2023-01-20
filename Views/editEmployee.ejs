@@ -7,15 +7,15 @@
     <body>
         <h1>Add Employee</h1>
         <form method="post">
-            Name: <input type="String" name="name"/>
+            Name: <input type="String" name="name" value="<%= employee.Name %>"/>
             <% if (errors["Name"]) { %>
                 <p style="color: red"><%= errors["Name"].message %></p>
             <% } %>
-            FM: <input type="String" name="fm"/>
+            FM: <input type="String" name="fm" value="<%= employee.FM %>"/>
             <% if (errors["FM"]) { %>
                 <p style="color: red"><%= errors["FM"].message %></p>
             <% } %>
-            GG: <input type="number" name="gg" min="0" max="25"/>
+            GG: <input type="number" name="gg" min="0" max="25" value="<%= employee.GG %>"/>
             <% if (errors["GG"]) { %>
                 <p style="color: red"><%= errors["GG"].message %></p>
             <% } %>

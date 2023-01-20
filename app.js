@@ -38,6 +38,9 @@ app.get("/addEmployee", (req, res) => {
   res.render("addEmployee", {errors: {}});
 });
 
+app.get("/editEmployee/:id", employeeController.edit);
+app.post("/editEmployee/:id", employeeController.update);
+
 app.get("/employees/delete/:id", employeeController.delete);
 
 // Skill functions

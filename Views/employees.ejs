@@ -9,7 +9,7 @@
         <% if (message) { %>
             <h2><%= message %></h2>
         <% } %> 
-        <table border="1">
+        <table border="1" style="color: white;">
             <thead>
                 <th>ID</th>
                 <th>Name</th>
@@ -24,7 +24,7 @@
                 <td><%= employee.Name %></td>
                 <td><%= employee.FM %></td>
                 <td><%= employee.GG %></td>
-                <td><%= employee.Last_Update %></td>
+                <td><%= employee.Last_Update.toLocaleDateString("en-UK") %></td>
                 <td>
                     <%
                         if (employee.Skills != null) {
@@ -36,6 +36,7 @@
                     %>
                 </td>
                 <td><a href="addSkill"><button>Add skill</button></a> <a href="deleteSkill"><button>Delete skill</button></a></td>
+                <td><a href="/editEmployee/<%= employee._id %>"><button>Edit employee</button></a></td>
                 <td><a href="/employees/delete/<%= employee._id %>"><button>Delete employee</button></a></td>
             </tr>
             <% }); %>
