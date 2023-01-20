@@ -31,12 +31,12 @@
                     <td><%= employee.Skills.Skill %>: <%= employee.Skills.Competency %></td>
                 <% } %>
 
-                <td><a href="skillsToEmployee/<%= employee._id %>"><button>Add skill</button></a> <a href="deleteSkillFromEmployee"><button>Delete skill</button></a></td>
+                <td><a href="/skillsToEmployee/<%= employee._id %>"><button>Add skill</button></a> <a href="/deleteSkillFromEmployee"><button>Delete skill</button></a></td>
                 <td><a href="/editEmployee/<%= employee._id %>"><button>Edit employee</button></a></td>
                 <td><a href="/employees/delete/<%= employee._id %>"><button>Delete employee</button></a></td>
             </tr>
             <% }); %>
         </table>
-        <a href="addEmployee"><button>Add new employee</button></a>
+        <a href="/addEmployee"><button>Add new employee</button></a>
     </body>
 </html>
