@@ -40,6 +40,9 @@ app.get("/addCompetency/:employeeId/:skillId", (req, res) => {
 app.post("/addSkillToEmployee/:employeeId/:skillId", employeeController.addSkill);
 
 app.post("/addEmployee", employeeController.create);
+app.get("/employees/addEmployee", (req, res) => {
+  res.render("addEmployee", { errors: {} });
+});
 app.get("/addEmployee", (req, res) => {
   res.render("addEmployee", { errors: {} });
 });
