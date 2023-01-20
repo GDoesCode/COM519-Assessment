@@ -2,14 +2,14 @@
 <html lang="en">
     <%- include("common/header"); %>
     <head>
-        <title>Staff</title>
+        <title>Employees</title>
     </head>
     <body>
-        <h1>Staff</h1>
+        <h1>Employees</h1>
         <% if (message) { %>
             <h2><%= message %></h2>
         <% } %> 
-        <table border="1" style="color: white;">
+        <table style="color: white; border: 1;">
             <thead>
                 <th>ID</th>
                 <th>Name</th>
@@ -25,17 +25,13 @@
                 <td><%= employee.FM %></td>
                 <td><%= employee.GG %></td>
                 <td><%= employee.Last_Update.toLocaleDateString("en-UK") %></td>
-                <td>
-                    <%
-                        if (employee.Skills != null) {
-                            for (const [key, value] of Object.entries(employee.Skills)) {
-                    %>
-                                <%= key %>: <%= value %> |
-                    <%      }
-                        }
-                    %>
-                </td>
-                <td><a href="addSkill"><button>Add skill</button></a> <a href="deleteSkill"><button>Delete skill</button></a></td>
+                <%
+                const skills = employee.Skills;
+                if (skills) { %>
+                    <td><%= employee.Skills.Skill %>: <%= employee.Skills.Competency %></td>
+                <% } %>
+
+                <td><a href="skillsToEmployee/<%= employee._id %>"><button>Add skill</button></a> <a href="deleteSkillFromEmployee"><button>Delete skill</button></a></td>
                 <td><a href="/editEmployee/<%= employee._id %>"><button>Edit employee</button></a></td>
                 <td><a href="/employees/delete/<%= employee._id %>"><button>Delete employee</button></a></td>
             </tr>

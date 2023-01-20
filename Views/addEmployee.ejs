@@ -9,15 +9,15 @@
         <form method="post">
             Name: <input type="String" name="name"/>
             <% if (errors["Name"]) { %>
-                <p style="color: red"><%= errors["Name"].message %></p>
+                <p style="color: red;"><%= errors["Name"].message %></p>
             <% } %>
             FM: <input type="String" name="fm"/>
             <% if (errors["FM"]) { %>
-                <p style="color: red"><%= errors["FM"].message %></p>
+                <p style="color: red;"><%= errors["FM"].message %></p>
             <% } %>
             GG: <input type="number" name="gg" min="0" max="25"/>
             <% if (errors["GG"]) { %>
-                <p style="color: red"><%= errors["GG"].message %></p>
+                <p style="color: red;"><%= errors["GG"].message %></p>
             <% } %>
             <input type="submit"/>
         </form>

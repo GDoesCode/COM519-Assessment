@@ -5,13 +5,13 @@
         <%- include("common/header"); -%> 
     </head>
     <body>
-        <h1>Add Skill</h1>
+        <h1>Edit Skill</h1>
         <form method="post">
-            Name: <input type="String" name="name"/>
-            <% if (errors["Namwe"]) { %>
+            Name: <input type="String" name="name" value="<%= skill.Name %>"/>
+            <% if (errors["Name"]) { %>
                 <p style="color: red;"><%= errors["Name"].message %></p>
             <% } %>
-            Description: <input type="String" name="description"/>
+            Description: <input type="String" name="description" value="<%= skill.Description %> "/>
             <% if (errors["Description"]) { %>
                 <p style="color: red;"><%= errors["Description"].message %></p>
             <% } %>

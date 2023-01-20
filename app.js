@@ -33,9 +33,15 @@ app.get("/", (req, res) => {
 // Employee functions
 app.get("/employees", employeeController.list);
 
+app.get("/employees/skillsToEmployee/:employeeId", skillController.list);
+app.get("/addCompetency/:employeeId/:skillId", (req, res) => {
+  res.render("addCompetency", { employeeId: req.params.employeeId, skillId: req.params.skillId, errors: {} });
+});
+app.post("/addSkillToEmployee/:employeeId/:skillId", employeeController.addSkill);
+
 app.post("/addEmployee", employeeController.create);
 app.get("/addEmployee", (req, res) => {
-  res.render("addEmployee", {errors: {}});
+  res.render("addEmployee", { errors: {} });
 });
 
 app.get("/editEmployee/:id", employeeController.edit);
@@ -45,6 +51,15 @@ app.get("/employees/delete/:id", employeeController.delete);
 
 // Skill functions
 app.get("/skills", skillController.list);
+
+app.post("/addSkill", skillController.create);
+app.get("/addSkill", (req, res) => {
+  res.render("addSkill", { errors: {} });
+});
+
+app.get("/editSkill/:id", skillController.edit);
+app.post("/editSkill/:id", skillController.update);
+
 app.get("/skills/delete/:id", skillController.delete);
 
 app.listen(WEB_PORT, () => {
