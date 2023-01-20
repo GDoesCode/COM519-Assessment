@@ -21,7 +21,7 @@ exports.create = async (req, res) => {
         res.redirect(`/skills/?message=${req.body.name} has been created.`);
     } catch (e) {
         if (e.errors) {
-            res.render("addEmployee", { errors: e.errors });
+            res.render("addSkill", { errors: e.errors });
             return;
         }
         return res.status(404).send({ message: JSON.parse(e) });
